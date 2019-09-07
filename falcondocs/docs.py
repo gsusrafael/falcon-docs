@@ -16,10 +16,10 @@ class FalconDocumentationRouter(falcon.routing.DefaultRouter):
         super(FalconDocumentationRouter, self).__init__()
         self.resources = ResourceCollection()
 
-    def add_route(self, uri_template, method_map, resource, *args, **kwargs):
-        self.resources.add(uri_template, resource, method_map)
+    def add_route(self, uri_template, resource, method_map, *args, **kwargs):
+        self.resources.add(uri_template, method_map, resource)
         super(FalconDocumentationRouter, self).add_route(uri_template,
-                                                         method_map, resource,
+                                                         resource, method_map,
                                                          *args, **kwargs)
 
 
